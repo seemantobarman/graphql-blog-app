@@ -1,5 +1,8 @@
-const { ApolloServer } = require("apollo-server");
+const { ApolloServer } = require("apollo-server-express");
 require("dotenv").config();
+const {
+    ApolloServerPluginLandingPageGraphQLPlayground,
+} = require("apollo-server-core");
 
 //graphql server needs types and resolvers
 
@@ -24,6 +27,7 @@ const resolvers = {
 const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
+    plugins: [ApolloServerPluginLandingPageGraphQLPlayground({})],
 });
 
 apolloServer.listen(process.env.PORT, () => {
