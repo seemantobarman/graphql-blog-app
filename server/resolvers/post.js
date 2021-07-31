@@ -1,9 +1,16 @@
+const { posts } = require("../temp");
+
 const totalPosts = () => {
-    return 100;
+    return posts.length;
+};
+
+const allPosts = () => {
+    return posts;
 };
 
 module.exports = {
     Query: {
         totalPosts: totalPosts,
+        allPosts: allPosts,
     },
 };
