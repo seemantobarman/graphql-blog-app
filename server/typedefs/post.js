@@ -11,4 +11,13 @@ module.exports = gql`
         totalPosts: Int!
         allPosts: [Post!]!
     }
+
+    input newPostInput {
+        title: String!
+        description: String!
+    }
+
+    type Mutation {
+        newPost(input: newPostInput!): Post!
+    }
 `;
